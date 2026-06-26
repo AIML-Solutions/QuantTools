@@ -1,9 +1,11 @@
-# MultiClaw-Quant-Tools 📈🦞
+# QuantTools
 
-[![Quant Quality Gate](https://github.com/AIML-Solutions/MultiClaw-quant-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/AIML-Solutions/MultiClaw-quant-tools/actions/workflows/ci.yml)
+[![Quant Quality Gate](https://github.com/AIML-Solutions/QuantTools/actions/workflows/ci.yml/badge.svg)](https://github.com/AIML-Solutions/QuantTools/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e.svg)](LICENSE)
 
-**MultiClaw-Quant-Tools** is AIML Solutions’ quantitative engineering lane for market data, derivatives analytics, and strategy infrastructure.
+**QuantTools** is AIML Solutions’ quantitative engineering lane for market data, derivatives analytics, and strategy infrastructure.
+
+It is a portfolio-facing proof point for Python quant engineering, LEAN research workflows, options/greeks analysis, data validation, and agent-ready query surfaces.
 
 ## What this repo does
 
