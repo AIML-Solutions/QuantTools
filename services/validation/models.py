@@ -1,6 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from decimal import Decimal
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field, field_validator, model_validator
 
@@ -45,6 +45,15 @@ class RecordQuality(BaseModel):
     validated: bool = True
     source_latency_ms: int | None = Field(default=None, ge=0)
     warnings: list[str] = Field(default_factory=list)
+
+
+class QuarantineRecord(BaseModel):
+    source: str = Field(min_length=1)
+    record_type: str = Field(min_length=1)
+    reason: str = Field(min_length=1)
+    payload: dict[str, Any]
+    observed_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    run_id: str | None = None
 
 
 class CanonicalMarketBar(BaseModel):

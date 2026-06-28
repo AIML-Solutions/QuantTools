@@ -28,5 +28,70 @@
     "research_tags": ["crypto", "ledger_analysis", "volatility"],
     "data_priority": "minute_with_daily_rollups",
     "status": "watchlist"
+  },
+  {
+    "asset_id": "etf:usa:QQQ",
+    "asset_type": "etf",
+    "canonical_symbol": "QQQ",
+    "provider_symbols": {
+      "lean": "QQQ",
+      "stooq": "QQQ.US",
+      "alpaca_basic": "QQQ",
+      "tradier": "QQQ"
+    },
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["growth_beta", "options", "0dte_candidate"],
+    "data_priority": "minute_plus_options_universe",
+    "status": "active"
+  },
+  {
+    "asset_id": "equity:usa:NVDA",
+    "asset_type": "equity",
+    "canonical_symbol": "NVDA",
+    "provider_symbols": {
+      "lean": "NVDA",
+      "stooq": "NVDA.US",
+      "alpaca_basic": "NVDA",
+      "tradier": "NVDA"
+    },
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["mega_cap", "ai_semis", "options"],
+    "data_priority": "daily_plus_options_watchlist",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "rate:usa:SOFR",
+    "asset_type": "rate",
+    "canonical_symbol": "SOFR",
+    "provider_symbols": {
+      "fred": "SOFR"
+    },
+    "venue": "macro_us",
+    "timezone": "America/New_York",
+    "session_rules": "release_calendar",
+    "research_tags": ["rates", "derivatives_context", "macro"],
+    "data_priority": "daily_release",
+    "status": "active"
+  },
+  {
+    "asset_id": "crypto:spot:ETH-USD",
+    "asset_type": "crypto",
+    "canonical_symbol": "ETH-USD",
+    "provider_symbols": {
+      "coinbase_public": "ETH-USD",
+      "kraken_public": "ETH/USD",
+      "coingecko": "ethereum",
+      "lean": "ETHUSD"
+    },
+    "venue": "crypto_spot",
+    "timezone": "UTC",
+    "session_rules": "continuous_24_7",
+    "research_tags": ["crypto", "evm", "ledger_analysis", "volatility"],
+    "data_priority": "minute_with_daily_rollups",
+    "status": "watchlist"
   }
 ]

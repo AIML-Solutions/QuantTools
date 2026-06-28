@@ -1,0 +1,8 @@
+{
+  "id": "bitcoin",
+  "symbol": "btc",
+  "name": "Bitcoin",
+  "current_price": 101250.55,
+  "market_cap": 2015000000000,
+  "total_volume": 38000000000
+}

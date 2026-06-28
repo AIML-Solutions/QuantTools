@@ -1,0 +1,82 @@
+[
+  {
+    "provider": "lean",
+    "asset_types": ["equity", "etf", "option", "future", "crypto", "index"],
+    "freshness": "historical",
+    "cost_tier": "subscription",
+    "requires_secret": true,
+    "preferred_for": ["backtest", "options", "0dte"]
+  },
+  {
+    "provider": "stooq",
+    "asset_types": ["equity", "etf", "index"],
+    "freshness": "daily",
+    "cost_tier": "free",
+    "requires_secret": false,
+    "preferred_for": ["daily_baseline"]
+  },
+  {
+    "provider": "fred",
+    "asset_types": ["rate", "macro"],
+    "freshness": "event",
+    "cost_tier": "free",
+    "requires_secret": true,
+    "preferred_for": ["macro_context", "rates"]
+  },
+  {
+    "provider": "treasury_fiscal_data",
+    "asset_types": ["rate", "macro"],
+    "freshness": "daily",
+    "cost_tier": "free",
+    "requires_secret": false,
+    "preferred_for": ["rates", "fiscal_context"]
+  },
+  {
+    "provider": "alpaca_basic",
+    "asset_types": ["equity", "etf", "option", "crypto"],
+    "freshness": "near_realtime",
+    "cost_tier": "free",
+    "requires_secret": true,
+    "preferred_for": ["paper_execution", "iex_comparison"]
+  },
+  {
+    "provider": "tradier",
+    "asset_types": ["equity", "etf", "option"],
+    "freshness": "near_realtime",
+    "cost_tier": "free",
+    "requires_secret": true,
+    "preferred_for": ["options", "0dte"]
+  },
+  {
+    "provider": "coingecko",
+    "asset_types": ["crypto", "token"],
+    "freshness": "delayed",
+    "cost_tier": "free",
+    "requires_secret": false,
+    "preferred_for": ["crypto_reference"]
+  },
+  {
+    "provider": "coinbase_public",
+    "asset_types": ["crypto"],
+    "freshness": "near_realtime",
+    "cost_tier": "free",
+    "requires_secret": false,
+    "preferred_for": ["crypto_venue"]
+  },
+  {
+    "provider": "kraken_public",
+    "asset_types": ["crypto"],
+    "freshness": "near_realtime",
+    "cost_tier": "free",
+    "requires_secret": false,
+    "preferred_for": ["crypto_venue"]
+  },
+  {
+    "provider": "sec_edgar",
+    "asset_types": ["equity", "etf"],
+    "freshness": "event",
+    "cost_tier": "free",
+    "requires_secret": false,
+    "preferred_for": ["filings_context"]
+  }
+]
