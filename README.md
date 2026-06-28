@@ -23,6 +23,19 @@ It is a portfolio-facing proof point for Python quant engineering, LEAN research
 - GraphQL query path verified
 - Market-hours and data-source mapping documented
 
+## Implementation status
+
+| Area | Status | Notes |
+| --- | --- | --- |
+| LEAN research workflows | Active | Multiple strategy workspaces and backtest artifacts are included under `lean-cli/` |
+| Market data ingestion | Active | Broker, macro, crypto, equities, and options-related ingestion scripts are organized under `services/ingestion/` |
+| Validation models | Active | Pydantic validation paths exist under `services/validation/` and `services/ingestion/` |
+| Query surfaces | Scaffold/active | JSON-RPC and GraphQL-facing examples exist; production hardening remains a next step |
+| Options/greeks | Scaffold/active | Framework notes and VIX/options research paths exist; expand with tested calculators and examples next |
+| Public dashboard | Active | GitHub Pages frontend artifacts summarize selected quant research outputs |
+
+This repository is the strongest current technical proof point in the AIML Solutions portfolio. The next quality step is adding tests and a reproducible validated-demo document that ties commands to output artifacts.
+
 ## Key documents
 
 - [docs/architecture.md](docs/architecture.md)
