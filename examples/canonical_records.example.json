@@ -1,0 +1,44 @@
+{
+  "market_bar": {
+    "asset_id": "etf:usa:SPY",
+    "canonical_symbol": "SPY",
+    "asset_type": "etf",
+    "provider": "example_provider",
+    "venue": "usa_equity",
+    "timestamp": "2026-06-28T14:30:00Z",
+    "timeframe": "1m",
+    "open": "600.10",
+    "high": "600.70",
+    "low": "599.95",
+    "close": "600.25",
+    "volume": "125000",
+    "currency": "USD",
+    "quality": {
+      "schema_version": "0.1.0",
+      "validated": true,
+      "source_latency_ms": null,
+      "warnings": []
+    }
+  },
+  "option_snapshot": {
+    "asset_id": "option:usa:SPY:2026-06-30:CALL:600",
+    "underlying_asset_id": "etf:usa:SPY",
+    "canonical_symbol": "SPY 2026-06-30 600C",
+    "asset_type": "option",
+    "timestamp": "2026-06-28T14:30:00Z",
+    "expiry": "2026-06-30",
+    "strike": "600.0",
+    "right": "call",
+    "implied_volatility": "0.18",
+    "delta": "0.52",
+    "gamma": "0.04",
+    "theta": "-0.09",
+    "vega": "0.12",
+    "open_interest": "12000",
+    "quality": {
+      "schema_version": "0.1.0",
+      "validated": true,
+      "warnings": []
+    }
+  }
+}

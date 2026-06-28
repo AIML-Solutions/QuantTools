@@ -1,0 +1,32 @@
+[
+  {
+    "asset_id": "etf:usa:SPY",
+    "asset_type": "etf",
+    "canonical_symbol": "SPY",
+    "provider_symbols": {
+      "lean": "SPY",
+      "example_broker": "SPY"
+    },
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["broad_market", "options", "0dte_candidate"],
+    "data_priority": "minute_plus_options_universe",
+    "status": "active"
+  },
+  {
+    "asset_id": "crypto:spot:BTC-USD",
+    "asset_type": "crypto",
+    "canonical_symbol": "BTC-USD",
+    "provider_symbols": {
+      "coinbase": "BTC-USD",
+      "lean": "BTCUSD"
+    },
+    "venue": "crypto_spot",
+    "timezone": "UTC",
+    "session_rules": "continuous_24_7",
+    "research_tags": ["crypto", "ledger_analysis", "volatility"],
+    "data_priority": "minute_with_daily_rollups",
+    "status": "watchlist"
+  }
+]

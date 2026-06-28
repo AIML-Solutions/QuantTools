@@ -1,19 +1,25 @@
 # Data Pipeline Spec (Quant Lane)
 
 ## Goal
-Provide reliable, replayable, and analyzable market data pipelines for MultiClaw research and trading operations.
+Provide reliable, replayable, and analyzable market data pipelines for MultiClaw research, portfolio analysis, paper-trading review, and strategy operations.
+
+QuantTools uses a targeted asset-master approach: select a bounded universe, map each asset across providers, normalize records into canonical JSON, validate with Pydantic, then store and expose clean records for research.
 
 ## Stages
 1. **Source acquisition** (LEAN/local/provider-based)
 2. **Normalization** (symbol/timezone/session coherence)
 3. **Validation** (schema and value constraints)
-4. **Storage** (Postgres canonical tables)
-5. **Access** (GraphQL + JSON-RPC)
-6. **Monitoring** (lag, gaps, anomalies)
+4. **Canonical JSON emission** (provider-attributed records)
+5. **Storage** (Postgres canonical tables and fixture artifacts)
+6. **Access** (GraphQL + JSON-RPC)
+7. **Monitoring** (lag, gaps, anomalies)
 
 ## Canonical entities
+- `reference.asset_master`
 - `market.bars`
 - `options.greeks_snapshot`
+- `portfolio.paper_ledger`
+- `onchain.transaction_event`
 - `backtests.run_summary`
 
 ## Required quality checks
