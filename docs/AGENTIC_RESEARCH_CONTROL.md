@@ -58,6 +58,16 @@ Generate the dry-run source matrix without provider calls:
 python3 -m services.orchestration.source_matrix --purpose daily_baseline
 ```
 
+Run no-auth public network smoke tests only when explicitly enabled:
+
+```bash
+ENABLE_NETWORK_TESTS=1 python3 -m services.ingestion.network_smoke --json
+```
+
+Without `ENABLE_NETWORK_TESTS=1`, the command reports skipped providers and performs no network requests.
+
+Stooq remains a daily-source candidate, but it is not part of the default smoke suite because it may present browser verification from server environments.
+
 If authentication must be refreshed:
 
 ```bash

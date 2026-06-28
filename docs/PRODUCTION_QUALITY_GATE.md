@@ -41,6 +41,8 @@ QuantTools should not publish a provider, strategy, or portfolio-analysis lane a
 - Normalization tests cover valid, invalid, duplicate, and quarantine paths.
 - Provider adapters have dry-run tests before network tests.
 - Network tests are opt-in and skipped unless explicit environment variables are present.
+- No-auth network smoke tests are limited to tiny public requests and must run only with `ENABLE_NETWORK_TESTS=1`.
+- Sources that present browser verification or unstable access from server environments must stay out of the default smoke suite.
 - LEAN cloud backtests are opt-in and require an approved hypothesis, expected cost posture, and run-ledger entry.
 - Local LEAN backtests require Docker access without privileged prompts.
 - `git diff --check` passes before commit.

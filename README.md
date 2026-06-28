@@ -77,6 +77,12 @@ Generate a dry-run source matrix without touching provider APIs:
 python3 -m services.orchestration.source_matrix --purpose daily_baseline
 ```
 
+Optional no-auth public smoke tests are disabled by default:
+
+```bash
+ENABLE_NETWORK_TESTS=1 python3 -m services.ingestion.network_smoke --json
+```
+
 ## Directory map
 
 - `lean-cli/` — LEAN projects + generated backtests
