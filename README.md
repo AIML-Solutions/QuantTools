@@ -71,6 +71,12 @@ cd ../lean-cli
 lean backtest "baseline-strategy" --no-update
 ```
 
+Generate a dry-run source matrix without touching provider APIs:
+
+```bash
+python3 -m services.orchestration.source_matrix --purpose daily_baseline
+```
+
 ## Directory map
 
 - `lean-cli/` — LEAN projects + generated backtests

@@ -21,9 +21,10 @@ class ValidationModelTests(unittest.TestCase):
         records = json.loads((ROOT / "examples" / "asset_master.example.json").read_text())
 
         parsed = [models.AssetMasterRecord.model_validate(record) for record in records]
+        btc = next(record for record in parsed if record.asset_id == "crypto:spot:BTC-USD")
 
         self.assertEqual(parsed[0].asset_id, "etf:usa:SPY")
-        self.assertEqual(parsed[1].session_rules, "continuous_24_7")
+        self.assertEqual(btc.session_rules, "continuous_24_7")
 
     def test_canonical_records_fixture_validates(self):
         records = json.loads((ROOT / "examples" / "canonical_records.example.json").read_text())

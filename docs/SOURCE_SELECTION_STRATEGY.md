@@ -123,13 +123,12 @@ The LEAN lane should be treated as a scarce, valuable research environment.
 - Track each run in a run ledger with data source, date range, strategy version, parameters, and cost posture.
 - Never present backtest results without caveats on slippage, fees, data quality, overfitting, and out-of-sample validation.
 
-Current local blocker: `lean` is not on PATH in this shell. Before using QuantConnect CLI, locate or install LEAN CLI and verify authentication with a read-only command.
+Current local state: LEAN CLI is installed at `/home/opencode/.local/bin/lean` and authenticated in this shell. Read-only checks work. Local Docker backtests are blocked until Docker can run without a privileged prompt, and cloud backtests remain blocked until an explicit hypothesis/cost decision is approved.
 
 ## What To Build Next Before Publishing More
 
-1. Expand `asset_master.example.json` to 10-20 representative assets with provider mappings.
-2. Add source-ranking metadata to each asset: preferred, fallback, prohibited.
-3. Add provider adapter tests for Stooq, FRED, Treasury, SEC, CoinGecko, Coinbase, Kraken, Alpaca fixture, and Tradier fixture.
-4. Add cost/rate-limit config models with default hard stops.
-5. Add an opt-in network smoke-test suite that skips unless environment variables are present.
-6. Add a local report generator that outputs a source-quality matrix from fixtures.
+1. Add source-ranking metadata to each asset: preferred, fallback, prohibited.
+2. Add an opt-in network smoke-test suite that skips unless environment variables are present.
+3. Add a local report generator that writes source-quality matrix artifacts for dashboard use.
+4. Add provider-specific rate-limit documentation once real account plans are confirmed.
+5. Add Docker/LEAN local-backtest readiness checks that do not require privileged prompts.

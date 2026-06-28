@@ -1,82 +1,14 @@
 [
-  {
-    "provider": "lean",
-    "asset_types": ["equity", "etf", "option", "future", "crypto", "index"],
-    "freshness": "historical",
-    "cost_tier": "subscription",
-    "requires_secret": true,
-    "preferred_for": ["backtest", "options", "0dte"]
-  },
-  {
-    "provider": "stooq",
-    "asset_types": ["equity", "etf", "index"],
-    "freshness": "daily",
-    "cost_tier": "free",
-    "requires_secret": false,
-    "preferred_for": ["daily_baseline"]
-  },
-  {
-    "provider": "fred",
-    "asset_types": ["rate", "macro"],
-    "freshness": "event",
-    "cost_tier": "free",
-    "requires_secret": true,
-    "preferred_for": ["macro_context", "rates"]
-  },
-  {
-    "provider": "treasury_fiscal_data",
-    "asset_types": ["rate", "macro"],
-    "freshness": "daily",
-    "cost_tier": "free",
-    "requires_secret": false,
-    "preferred_for": ["rates", "fiscal_context"]
-  },
-  {
-    "provider": "alpaca_basic",
-    "asset_types": ["equity", "etf", "option", "crypto"],
-    "freshness": "near_realtime",
-    "cost_tier": "free",
-    "requires_secret": true,
-    "preferred_for": ["paper_execution", "iex_comparison"]
-  },
-  {
-    "provider": "tradier",
-    "asset_types": ["equity", "etf", "option"],
-    "freshness": "near_realtime",
-    "cost_tier": "free",
-    "requires_secret": true,
-    "preferred_for": ["options", "0dte"]
-  },
-  {
-    "provider": "coingecko",
-    "asset_types": ["crypto", "token"],
-    "freshness": "delayed",
-    "cost_tier": "free",
-    "requires_secret": false,
-    "preferred_for": ["crypto_reference"]
-  },
-  {
-    "provider": "coinbase_public",
-    "asset_types": ["crypto"],
-    "freshness": "near_realtime",
-    "cost_tier": "free",
-    "requires_secret": false,
-    "preferred_for": ["crypto_venue"]
-  },
-  {
-    "provider": "kraken_public",
-    "asset_types": ["crypto"],
-    "freshness": "near_realtime",
-    "cost_tier": "free",
-    "requires_secret": false,
-    "preferred_for": ["crypto_venue"]
-  },
-  {
-    "provider": "sec_edgar",
-    "asset_types": ["equity", "etf"],
-    "freshness": "event",
-    "cost_tier": "free",
-    "requires_secret": false,
-    "preferred_for": ["filings_context"]
-  }
+  {"provider": "lean", "asset_types": ["equity", "etf", "option", "future", "crypto", "index"], "freshness": "historical", "cost_tier": "subscription", "requires_secret": true, "preferred_for": ["backtest", "options", "0dte"], "max_calls_per_run": 5, "max_records_per_run": 5000, "max_raw_bytes_per_run": 5000000, "min_poll_seconds": 86400},
+  {"provider": "stooq", "asset_types": ["equity", "etf", "index"], "freshness": "daily", "cost_tier": "free", "requires_secret": false, "preferred_for": ["daily_baseline"], "max_calls_per_run": 20, "max_records_per_run": 5000, "max_raw_bytes_per_run": 3000000, "min_poll_seconds": 86400},
+  {"provider": "fred", "asset_types": ["rate", "macro"], "freshness": "event", "cost_tier": "free", "requires_secret": true, "preferred_for": ["macro_context", "rates"], "max_calls_per_run": 20, "max_records_per_run": 5000, "max_raw_bytes_per_run": 3000000, "min_poll_seconds": 21600},
+  {"provider": "treasury_fiscal_data", "asset_types": ["rate", "macro"], "freshness": "daily", "cost_tier": "free", "requires_secret": false, "preferred_for": ["rates", "fiscal_context"], "max_calls_per_run": 20, "max_records_per_run": 5000, "max_raw_bytes_per_run": 3000000, "min_poll_seconds": 21600},
+  {"provider": "alpaca_basic", "asset_types": ["equity", "etf", "option", "crypto"], "freshness": "near_realtime", "cost_tier": "free", "requires_secret": true, "preferred_for": ["paper_execution", "iex_comparison"], "max_calls_per_run": 10, "max_records_per_run": 1000, "max_raw_bytes_per_run": 1000000, "min_poll_seconds": 60},
+  {"provider": "tradier", "asset_types": ["equity", "etf", "option"], "freshness": "near_realtime", "cost_tier": "free", "requires_secret": true, "preferred_for": ["options", "0dte"], "max_calls_per_run": 10, "max_records_per_run": 1000, "max_raw_bytes_per_run": 1000000, "min_poll_seconds": 60},
+  {"provider": "coingecko", "asset_types": ["crypto", "token"], "freshness": "delayed", "cost_tier": "free", "requires_secret": false, "preferred_for": ["crypto_reference"], "max_calls_per_run": 10, "max_records_per_run": 1000, "max_raw_bytes_per_run": 1000000, "min_poll_seconds": 300},
+  {"provider": "coinbase_public", "asset_types": ["crypto"], "freshness": "near_realtime", "cost_tier": "free", "requires_secret": false, "preferred_for": ["crypto_venue"], "max_calls_per_run": 10, "max_records_per_run": 3000, "max_raw_bytes_per_run": 2000000, "min_poll_seconds": 60},
+  {"provider": "kraken_public", "asset_types": ["crypto"], "freshness": "near_realtime", "cost_tier": "free", "requires_secret": false, "preferred_for": ["crypto_venue"], "max_calls_per_run": 10, "max_records_per_run": 3000, "max_raw_bytes_per_run": 2000000, "min_poll_seconds": 60},
+  {"provider": "sec_edgar", "asset_types": ["equity", "etf"], "freshness": "event", "cost_tier": "free", "requires_secret": false, "preferred_for": ["filings_context"], "max_calls_per_run": 10, "max_records_per_run": 1000, "max_raw_bytes_per_run": 3000000, "min_poll_seconds": 3600},
+  {"provider": "etherscan", "asset_types": ["token"], "freshness": "event", "cost_tier": "free", "requires_secret": true, "preferred_for": ["evm_context"], "max_calls_per_run": 5, "max_records_per_run": 1000, "max_raw_bytes_per_run": 1000000, "min_poll_seconds": 300},
+  {"provider": "defillama", "asset_types": ["crypto", "token"], "freshness": "daily", "cost_tier": "free", "requires_secret": false, "preferred_for": ["defi_context"], "max_calls_per_run": 10, "max_records_per_run": 2000, "max_raw_bytes_per_run": 2000000, "min_poll_seconds": 3600}
 ]

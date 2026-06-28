@@ -3,10 +3,7 @@
     "asset_id": "etf:usa:SPY",
     "asset_type": "etf",
     "canonical_symbol": "SPY",
-    "provider_symbols": {
-      "lean": "SPY",
-      "example_broker": "SPY"
-    },
+    "provider_symbols": {"lean": "SPY", "stooq": "SPY.US", "alpaca_basic": "SPY", "tradier": "SPY", "sec_edgar": "SPY"},
     "venue": "usa_equity",
     "timezone": "America/New_York",
     "session_rules": "usa_equity_regular_and_extended",
@@ -15,30 +12,10 @@
     "status": "active"
   },
   {
-    "asset_id": "crypto:spot:BTC-USD",
-    "asset_type": "crypto",
-    "canonical_symbol": "BTC-USD",
-    "provider_symbols": {
-      "coinbase": "BTC-USD",
-      "lean": "BTCUSD"
-    },
-    "venue": "crypto_spot",
-    "timezone": "UTC",
-    "session_rules": "continuous_24_7",
-    "research_tags": ["crypto", "ledger_analysis", "volatility"],
-    "data_priority": "minute_with_daily_rollups",
-    "status": "watchlist"
-  },
-  {
     "asset_id": "etf:usa:QQQ",
     "asset_type": "etf",
     "canonical_symbol": "QQQ",
-    "provider_symbols": {
-      "lean": "QQQ",
-      "stooq": "QQQ.US",
-      "alpaca_basic": "QQQ",
-      "tradier": "QQQ"
-    },
+    "provider_symbols": {"lean": "QQQ", "stooq": "QQQ.US", "alpaca_basic": "QQQ", "tradier": "QQQ", "sec_edgar": "QQQ"},
     "venue": "usa_equity",
     "timezone": "America/New_York",
     "session_rules": "usa_equity_regular_and_extended",
@@ -47,15 +24,46 @@
     "status": "active"
   },
   {
+    "asset_id": "etf:usa:IWM",
+    "asset_type": "etf",
+    "canonical_symbol": "IWM",
+    "provider_symbols": {"lean": "IWM", "stooq": "IWM.US", "alpaca_basic": "IWM", "tradier": "IWM", "sec_edgar": "IWM"},
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["small_cap", "options", "0dte_candidate"],
+    "data_priority": "minute_plus_options_universe",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "equity:usa:AAPL",
+    "asset_type": "equity",
+    "canonical_symbol": "AAPL",
+    "provider_symbols": {"lean": "AAPL", "stooq": "AAPL.US", "alpaca_basic": "AAPL", "tradier": "AAPL", "sec_edgar": "AAPL"},
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["mega_cap", "options", "earnings_context"],
+    "data_priority": "daily_plus_options_watchlist",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "equity:usa:MSFT",
+    "asset_type": "equity",
+    "canonical_symbol": "MSFT",
+    "provider_symbols": {"lean": "MSFT", "stooq": "MSFT.US", "alpaca_basic": "MSFT", "tradier": "MSFT", "sec_edgar": "MSFT"},
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["mega_cap", "ai_software", "options"],
+    "data_priority": "daily_plus_options_watchlist",
+    "status": "watchlist"
+  },
+  {
     "asset_id": "equity:usa:NVDA",
     "asset_type": "equity",
     "canonical_symbol": "NVDA",
-    "provider_symbols": {
-      "lean": "NVDA",
-      "stooq": "NVDA.US",
-      "alpaca_basic": "NVDA",
-      "tradier": "NVDA"
-    },
+    "provider_symbols": {"lean": "NVDA", "stooq": "NVDA.US", "alpaca_basic": "NVDA", "tradier": "NVDA", "sec_edgar": "NVDA"},
     "venue": "usa_equity",
     "timezone": "America/New_York",
     "session_rules": "usa_equity_regular_and_extended",
@@ -64,12 +72,70 @@
     "status": "watchlist"
   },
   {
+    "asset_id": "equity:usa:TSLA",
+    "asset_type": "equity",
+    "canonical_symbol": "TSLA",
+    "provider_symbols": {"lean": "TSLA", "stooq": "TSLA.US", "alpaca_basic": "TSLA", "tradier": "TSLA", "sec_edgar": "TSLA"},
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["mega_cap", "high_beta", "options"],
+    "data_priority": "daily_plus_options_watchlist",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "etf:usa:GLD",
+    "asset_type": "etf",
+    "canonical_symbol": "GLD",
+    "provider_symbols": {"lean": "GLD", "stooq": "GLD.US", "alpaca_basic": "GLD", "tradier": "GLD"},
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["defensive", "commodity_proxy", "regime"],
+    "data_priority": "daily",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "etf:usa:TLT",
+    "asset_type": "etf",
+    "canonical_symbol": "TLT",
+    "provider_symbols": {"lean": "TLT", "stooq": "TLT.US", "alpaca_basic": "TLT", "tradier": "TLT"},
+    "venue": "usa_equity",
+    "timezone": "America/New_York",
+    "session_rules": "usa_equity_regular_and_extended",
+    "research_tags": ["rates_proxy", "duration", "regime"],
+    "data_priority": "daily",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "crypto:spot:BTC-USD",
+    "asset_type": "crypto",
+    "canonical_symbol": "BTC-USD",
+    "provider_symbols": {"coinbase_public": "BTC-USD", "kraken_public": "BTC/USD", "coingecko": "bitcoin", "lean": "BTCUSD"},
+    "venue": "crypto_spot",
+    "timezone": "UTC",
+    "session_rules": "continuous_24_7",
+    "research_tags": ["crypto", "ledger_analysis", "volatility"],
+    "data_priority": "minute_with_daily_rollups",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "crypto:spot:ETH-USD",
+    "asset_type": "crypto",
+    "canonical_symbol": "ETH-USD",
+    "provider_symbols": {"coinbase_public": "ETH-USD", "kraken_public": "ETH/USD", "coingecko": "ethereum", "lean": "ETHUSD"},
+    "venue": "crypto_spot",
+    "timezone": "UTC",
+    "session_rules": "continuous_24_7",
+    "research_tags": ["crypto", "evm", "ledger_analysis", "volatility"],
+    "data_priority": "minute_with_daily_rollups",
+    "status": "watchlist"
+  },
+  {
     "asset_id": "rate:usa:SOFR",
     "asset_type": "rate",
     "canonical_symbol": "SOFR",
-    "provider_symbols": {
-      "fred": "SOFR"
-    },
+    "provider_symbols": {"fred": "SOFR"},
     "venue": "macro_us",
     "timezone": "America/New_York",
     "session_rules": "release_calendar",
@@ -78,20 +144,39 @@
     "status": "active"
   },
   {
-    "asset_id": "crypto:spot:ETH-USD",
-    "asset_type": "crypto",
-    "canonical_symbol": "ETH-USD",
-    "provider_symbols": {
-      "coinbase_public": "ETH-USD",
-      "kraken_public": "ETH/USD",
-      "coingecko": "ethereum",
-      "lean": "ETHUSD"
-    },
-    "venue": "crypto_spot",
-    "timezone": "UTC",
-    "session_rules": "continuous_24_7",
-    "research_tags": ["crypto", "evm", "ledger_analysis", "volatility"],
-    "data_priority": "minute_with_daily_rollups",
+    "asset_id": "rate:usa:FEDFUNDS",
+    "asset_type": "rate",
+    "canonical_symbol": "FEDFUNDS",
+    "provider_symbols": {"fred": "FEDFUNDS"},
+    "venue": "macro_us",
+    "timezone": "America/New_York",
+    "session_rules": "release_calendar",
+    "research_tags": ["rates", "macro", "monetary_policy"],
+    "data_priority": "monthly_release",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "macro:usa:CPIAUCSL",
+    "asset_type": "macro",
+    "canonical_symbol": "CPIAUCSL",
+    "provider_symbols": {"fred": "CPIAUCSL"},
+    "venue": "macro_us",
+    "timezone": "America/New_York",
+    "session_rules": "release_calendar",
+    "research_tags": ["inflation", "macro", "regime"],
+    "data_priority": "monthly_release",
+    "status": "watchlist"
+  },
+  {
+    "asset_id": "rate:usa:DGS10",
+    "asset_type": "rate",
+    "canonical_symbol": "DGS10",
+    "provider_symbols": {"fred": "DGS10", "treasury_fiscal_data": "10_year_treasury"},
+    "venue": "macro_us",
+    "timezone": "America/New_York",
+    "session_rules": "release_calendar",
+    "research_tags": ["rates", "treasury", "duration"],
+    "data_priority": "daily_release",
     "status": "watchlist"
   }
 ]

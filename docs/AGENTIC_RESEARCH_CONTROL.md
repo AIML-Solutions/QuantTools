@@ -52,6 +52,12 @@ Current status:
 - Local backtest is currently blocked because Docker is installed but this user does not have direct Docker access without `sudo`.
 - Cloud backtests remain blocked by policy until a written hypothesis and cost decision are approved.
 
+Generate the dry-run source matrix without provider calls:
+
+```bash
+python3 -m services.orchestration.source_matrix --purpose daily_baseline
+```
+
 If authentication must be refreshed:
 
 ```bash
