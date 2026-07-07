@@ -59,8 +59,13 @@ This document records modest, reproducible metrics for QuantTools. The goal is t
 
 ## Next Metrics To Add
 
-1. Compact smoke-report generator that writes timestamped summaries without raw payloads.
-2. Provider readiness score combining catalog tier, fixture coverage, smoke status, and secret/entitlement requirements.
+1. Provider readiness score combining catalog tier, fixture coverage, smoke status, and secret/entitlement requirements.
 3. JSON-RPC `providers.smoke_status` and `source_matrix.daily` local methods backed by compact artifacts.
 4. CI-visible test metrics once dependency specification is formalized.
 5. A small `smoke-report.example.json` artifact for public demos.
+
+Generate a compact smoke report without raw payload storage:
+
+```bash
+python3 -m services.ingestion.smoke_report --out examples/smoke-report.latest.json
+```

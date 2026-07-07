@@ -85,6 +85,12 @@ Optional no-auth public smoke tests are disabled by default:
 ENABLE_NETWORK_TESTS=1 python3 -m services.ingestion.network_smoke --json
 ```
 
+Generate a compact public-safe smoke report artifact:
+
+```bash
+python3 -m services.ingestion.smoke_report --out examples/smoke-report.latest.json
+```
+
 ## Directory map
 
 - `lean-cli/` — LEAN projects + generated backtests
