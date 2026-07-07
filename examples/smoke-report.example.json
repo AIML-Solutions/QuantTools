@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-06-30T00:00:00Z",
+  "mode": "public_no_auth_smoke",
+  "network_tests_enabled": true,
+  "summary": {
+    "checks_total": 4,
+    "checks_ok": 4,
+    "checks_failed": 0
+  },
+  "checks": [
+    {
+      "provider": "sec_edgar",
+      "status": "ok",
+      "bytes": 164394,
+      "note": "Public endpoint reachable during point-in-time smoke check."
+    },
+    {
+      "provider": "treasury_fiscal_data",
+      "status": "ok",
+      "bytes": 701,
+      "note": "Public endpoint reachable during point-in-time smoke check."
+    },
+    {
+      "provider": "coinbase_public",
+      "status": "ok",
+      "bytes": 187,
+      "note": "Public endpoint reachable during point-in-time smoke check."
+    },
+    {
+      "provider": "kraken_public",
+      "status": "ok",
+      "bytes": 309,
+      "note": "Public endpoint reachable during point-in-time smoke check."
+    }
+  ],
+  "caveat": "This is a compact example artifact for readiness reporting. It is not an uptime SLA, full feed validation, trading signal, or entitlement proof."
+}

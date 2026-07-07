@@ -4,6 +4,8 @@ This document defines how QuantTools should decide what data it can pull, what d
 
 The core idea is selective aggregation: maintain a small asset master, map each asset to multiple possible providers, choose the best source per use case, and avoid duplicate storage or uncontrolled polling.
 
+See also [`QUANTCONNECT_DATASET_MAP.md`](QUANTCONNECT_DATASET_MAP.md) for a curated map of QuantConnect free, free-in-cloud, and paid/entitlement-sensitive datasets.
+
 ## Operating Constraints
 
 - Use paid subscriptions only where already intentionally authorized, such as a QuantConnect research subscription.

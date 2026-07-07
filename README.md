@@ -19,26 +19,26 @@ It is a portfolio-facing proof point for Python quant engineering, LEAN research
 
 ## Current implementation highlights
 
-- LEAN authenticated with baseline backtest validated
-- Postgres + Hasura + Qdrant stack operational
-- Backtest summary ingestion to Postgres verified
-- GraphQL query path verified
-- Market-hours and data-source mapping documented
+- Local validation suite with documented project metrics
+- Multisource fixture normalization and Pydantic validation models
+- Opt-in no-auth smoke checks for selected public endpoints
+- Dry-run source matrix for planning provider usage without uncontrolled pulls
+- LEAN, GraphQL, JSON-RPC, and local data-stack workspaces documented for continued hardening
 
 ## Implementation status
 
 | Area | Status | Notes |
 | --- | --- | --- |
-| LEAN research workflows | Active | Multiple strategy workspaces and backtest artifacts are included under `lean-cli/` |
-| Market data ingestion | Active | Broker, macro, crypto, equities, options, and on-chain ingestion paths are organized under `services/ingestion/` and `services/blockchain/` |
+| LEAN research workflows | Scaffold/active | Strategy workspaces are included under `lean-cli/`; paid/cloud runs require explicit approval |
+| Market data ingestion | Scaffold/active | Broker, macro, crypto, equities, options, and on-chain ingestion paths are organized under `services/ingestion/` and `services/blockchain/` |
 | Validation models | Active | Pydantic validation paths exist under `services/validation/` and `services/ingestion/` |
-| Query surfaces | Scaffold/active | JSON-RPC and GraphQL-facing examples exist; production hardening remains a next step |
+| Query surfaces | Scaffold/active | JSON-RPC and GraphQL-facing plans/examples exist; production hardening remains a next step |
 | Options/greeks | Scaffold/active | Framework notes and VIX/options research paths exist; expand with tested calculators and examples next |
 | Asset master | Planned/active | A canonical target-universe model is being formalized for provider mappings, asset tags, and portfolio research |
 | On-chain analytics | Scaffold/active | Bitcoin/Ethereum/EVM tracing and Solidity review tools are organized under `services/blockchain/` |
 | Public dashboard | Active | GitHub Pages frontend artifacts summarize selected quant research outputs |
 
-This repository is the strongest current technical proof point in the AIML Solutions portfolio. The next quality step is adding tests and a reproducible validated-demo document that ties commands to output artifacts.
+This repository is the strongest current technical proof point in the AIML Solutions portfolio. See [docs/PROJECT-METRICS.md](docs/PROJECT-METRICS.md) for the current evidence snapshot and caveats.
 
 ## Key documents
 
@@ -48,6 +48,8 @@ This repository is the strongest current technical proof point in the AIML Solut
 - [docs/MULTISOURCE_ASSET_PIPELINE.md](docs/MULTISOURCE_ASSET_PIPELINE.md)
 - [docs/AGENTIC_RESEARCH_CONTROL.md](docs/AGENTIC_RESEARCH_CONTROL.md)
 - [docs/SOURCE_SELECTION_STRATEGY.md](docs/SOURCE_SELECTION_STRATEGY.md)
+- [docs/QUANTCONNECT_DATASET_MAP.md](docs/QUANTCONNECT_DATASET_MAP.md)
+- [docs/PROJECT-METRICS.md](docs/PROJECT-METRICS.md)
 - [docs/PRODUCTION_QUALITY_GATE.md](docs/PRODUCTION_QUALITY_GATE.md)
 - [docs/DATA_PIPELINE_SPEC.md](docs/DATA_PIPELINE_SPEC.md)
 - [docs/OPTIONS_GREEKS_PLAYBOOK.md](docs/OPTIONS_GREEKS_PLAYBOOK.md)

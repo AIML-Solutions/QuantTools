@@ -7,7 +7,7 @@ from typing import Any, TypeVar
 
 from pydantic import ValidationError
 
-from services.validation.models import AssetMasterRecord, CanonicalMarketBar, QuarantineRecord
+from services.validation.models import AssetMasterRecord, CanonicalMarketBar, QuarantineRecord, RecordQuality
 
 
 T = TypeVar("T")
@@ -49,18 +49,20 @@ def normalize_stooq_daily_bar(row: dict[str, Any], asset: AssetMasterRecord) -> 
         close=Decimal(str(row["Close"])),
         volume=Decimal(str(row.get("Volume") or "0")),
         currency="USD",
+        quality=RecordQuality(effective_at=timestamp, provider_timestamp=timestamp),
     )
 
 
 def normalize_coingecko_market(row: dict[str, Any], asset: AssetMasterRecord, as_of: datetime) -> CanonicalMarketBar:
     price = Decimal(str(row["current_price"]))
+    observed_at = as_of.astimezone(timezone.utc)
     return CanonicalMarketBar(
         asset_id=asset.asset_id,
         canonical_symbol=asset.canonical_symbol,
         asset_type=asset.asset_type,
         provider="coingecko",
         venue=asset.venue,
-        timestamp=as_of.astimezone(timezone.utc),
+        timestamp=observed_at,
         timeframe="snapshot",
         open=price,
         high=price,
@@ -68,6 +70,7 @@ def normalize_coingecko_market(row: dict[str, Any], asset: AssetMasterRecord, as
         close=price,
         volume=Decimal(str(row.get("total_volume") or "0")),
         currency="USD",
+        quality=RecordQuality(observed_at=observed_at, effective_at=observed_at, provider_timestamp=observed_at),
     )
 
 
@@ -88,6 +91,7 @@ def normalize_fred_observation(row: dict[str, Any], asset: AssetMasterRecord) ->
         close=value,
         volume=Decimal("0"),
         currency="USD",
+        quality=RecordQuality(effective_at=timestamp, provider_timestamp=timestamp),
     )
 
 
@@ -108,6 +112,7 @@ def normalize_treasury_rate(row: dict[str, Any], asset: AssetMasterRecord) -> Ca
         close=value,
         volume=Decimal("0"),
         currency="USD",
+        quality=RecordQuality(effective_at=timestamp, provider_timestamp=timestamp),
     )
 
 
@@ -127,18 +132,20 @@ def normalize_coinbase_candle(row: list[Any], asset: AssetMasterRecord) -> Canon
         close=Decimal(str(row[4])),
         volume=Decimal(str(row[5])),
         currency="USD",
+        quality=RecordQuality(effective_at=timestamp, provider_timestamp=timestamp),
     )
 
 
 def normalize_kraken_ticker(row: dict[str, Any], asset: AssetMasterRecord, as_of: datetime) -> CanonicalMarketBar:
     price = Decimal(str(row["c"][0]))
+    observed_at = as_of.astimezone(timezone.utc)
     return CanonicalMarketBar(
         asset_id=asset.asset_id,
         canonical_symbol=asset.canonical_symbol,
         asset_type=asset.asset_type,
         provider="kraken_public",
         venue=asset.venue,
-        timestamp=as_of.astimezone(timezone.utc),
+        timestamp=observed_at,
         timeframe="snapshot",
         open=Decimal(str(row["o"])),
         high=Decimal(str(row["h"][1])),
@@ -146,6 +153,7 @@ def normalize_kraken_ticker(row: dict[str, Any], asset: AssetMasterRecord, as_of
         close=price,
         volume=Decimal(str(row["v"][1])),
         currency="USD",
+        quality=RecordQuality(observed_at=observed_at, effective_at=observed_at, provider_timestamp=observed_at),
     )
 
 

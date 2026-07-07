@@ -85,6 +85,10 @@ Representative market-bar record:
   "quality": {
     "schema_version": "0.1.0",
     "validated": true,
+    "observed_at": "2026-06-28T14:30:05Z",
+    "effective_at": "2026-06-28T14:30:00Z",
+    "provider_timestamp": "2026-06-28T14:30:00Z",
+    "max_staleness_seconds": 300,
     "source_latency_ms": null,
     "warnings": []
   }
@@ -122,6 +126,7 @@ Representative option snapshot:
 - Reject records with missing canonical asset IDs.
 - Normalize timestamps to UTC while retaining session context.
 - Keep provider attribution on every ingested record.
+- Track `observed_at`, `effective_at`, and provider timestamps so mixed-freshness records do not create false consensus.
 - Validate symbol mappings before writing market data.
 - Check ranges for prices, volume, greeks, rates, and volatility.
 - Detect duplicate natural keys before storage.

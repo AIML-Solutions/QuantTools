@@ -42,6 +42,8 @@ class IngestionNormalizationTests(unittest.TestCase):
         self.assertEqual(bar.provider, "stooq")
         self.assertEqual(bar.timeframe, "1d")
         self.assertEqual(str(bar.close), "602.50")
+        self.assertEqual(bar.quality.effective_at, bar.timestamp)
+        self.assertEqual(bar.quality.provider_timestamp, bar.timestamp)
 
     def test_coingecko_payload_normalizes_to_canonical_bar(self):
         asset = next(
@@ -58,6 +60,7 @@ class IngestionNormalizationTests(unittest.TestCase):
         self.assertEqual(bar.provider, "coingecko")
         self.assertEqual(bar.timeframe, "snapshot")
         self.assertEqual(str(bar.volume), "38000000000")
+        self.assertEqual(bar.quality.observed_at, as_of)
 
     def test_invalid_provider_payload_goes_to_quarantine(self):
         asset = AssetMasterRecord.model_validate(load_json("examples/asset_master.example.json")[0])

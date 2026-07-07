@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 
 from pydantic import ValidationError
@@ -63,6 +64,23 @@ class ValidationModelTests(unittest.TestCase):
                     "close": "100",
                 }
             )
+
+    def test_record_quality_warns_when_record_is_stale(self):
+        quality = models.RecordQuality(
+            observed_at=datetime(2026, 6, 30, 14, 0, tzinfo=timezone.utc),
+            effective_at=datetime(2026, 6, 30, 13, 0, tzinfo=timezone.utc),
+            max_staleness_seconds=1800,
+        )
+
+        self.assertIn("record is stale", quality.warnings[0])
+
+    def test_record_quality_warns_when_effective_time_is_future(self):
+        quality = models.RecordQuality(
+            observed_at=datetime(2026, 6, 30, 14, 0, tzinfo=timezone.utc),
+            effective_at=datetime(2026, 6, 30, 14, 5, tzinfo=timezone.utc),
+        )
+
+        self.assertIn("effective_at is after observed_at", quality.warnings)
 
 
 if __name__ == "__main__":

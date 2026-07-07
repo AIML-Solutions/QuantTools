@@ -44,7 +44,25 @@ class RecordQuality(BaseModel):
     schema_version: str = "0.1.0"
     validated: bool = True
     source_latency_ms: int | None = Field(default=None, ge=0)
+    observed_at: datetime | None = None
+    effective_at: datetime | None = None
+    provider_timestamp: datetime | None = None
+    max_staleness_seconds: int | None = Field(default=None, ge=0)
     warnings: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def validate_freshness_window(self):
+        if self.observed_at and self.effective_at:
+            observed_at = self.observed_at.astimezone(timezone.utc)
+            effective_at = self.effective_at.astimezone(timezone.utc)
+            staleness_seconds = (observed_at - effective_at).total_seconds()
+            if staleness_seconds < 0:
+                self.warnings.append("effective_at is after observed_at")
+            if self.max_staleness_seconds is not None and staleness_seconds > self.max_staleness_seconds:
+                self.warnings.append(
+                    f"record is stale by {int(staleness_seconds)} seconds; max allowed is {self.max_staleness_seconds}"
+                )
+        return self
 
 
 class QuarantineRecord(BaseModel):
